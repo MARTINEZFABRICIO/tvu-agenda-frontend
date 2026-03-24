@@ -1,0 +1,73 @@
+<div class="eliminar-page">
+    <div class="eliminar-card">
+        <div class="logos-top logos-row">
+            <img src="LOGORADIO.png" alt="TVU Logo 1" class="logo logo-main">
+            <img src="LOGO TVU.png" alt="TVU Logo 2" class="logo logo-main">
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 class="title">ELIMINAR CONTACTO</h2>
+        <p class="subtitle">Confirma la eliminación del registro seleccionado</p>
+
+        @if (!eliminado) {
+        <div class="warning-box">
+            <div class="warning-icon-wrap">
+                <mat-icon class="warning-icon">warning</mat-icon>
+            </div>
+            <p class="warning-text">
+                Esta acción eliminará el contacto de forma visual del sistema.
+            </p>
+        </div>
+
+        <mat-card class="contact-card">
+            <div class="contact-row">
+                <span class="label">Nombre</span>
+                <span class="value">{{ contacto.nombre }}</span>
+            </div>
+
+            <div class="contact-row">
+                <span class="label">Institución</span>
+                <span class="value">{{ contacto.institucion }}</span>
+            </div>
+
+            <div class="contact-row">
+                <span class="label">Teléfono</span>
+                <span class="value">{{ contacto.telefono }}</span>
+            </div>
+
+            <div class="contact-row">
+                <span class="label">Cargo</span>
+                <span class="value">{{ contacto.cargo }}</span>
+            </div>
+        </mat-card>
+
+        <div class="actions">
+            <button mat-stroked-button type="button" class="cancel-button" (click)="cancelarEliminacion()">
+					<mat-icon>close</mat-icon>
+					<span>Cancelar</span>
+				</button>
+
+            <button mat-raised-button type="button" color="warn" class="delete-button" (click)="confirmarEliminacion()">
+					<mat-icon>delete</mat-icon>
+					<span>Eliminar</span>
+				</button>
+        </div>
+        } @if (eliminado) {
+        <div class="success-box">
+            <div class="success-icon-wrap">
+                <mat-icon class="success-icon">check_circle</mat-icon>
+            </div>
+
+            <h3 class="success-title">CONTACTO ELIMINADO</h3>
+            <p class="success-text">
+                El registro fue eliminado correctamente de la vista.
+            </p>
+
+            <button mat-raised-button color="primary" type="button" class="back-button">
+					Volver
+				</button>
+        </div>
+        }
+    </div>
+</div>

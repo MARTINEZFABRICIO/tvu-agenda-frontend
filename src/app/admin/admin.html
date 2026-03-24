@@ -1,0 +1,34 @@
+<div class="admin-page">
+    <div class="admin-card">
+        <div class="logos-top logos-row">
+            <img src="LOGORADIO.png" alt="TVU Logo 1" class="logo logo-main">
+            <img src="LOGO TVU.png" alt="TVU Logo 2" class="logo logo-main">
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 class="title">ADMINISTRADOR</h2>
+        <p class="subtitle">Acceso al panel del administrador</p>
+
+        <mat-form-field appearance="outline" class="full-width warm-field">
+            <mat-label>Rol del usuario</mat-label>
+            <mat-select [(ngModel)]="rol">
+                <mat-option *ngFor="let item of roles" [value]="item">
+                    {{ item }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width warm-field">
+            <mat-label>Ingresa tu contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword" [attr.aria-label]="hidePassword ? 'Mostrar contraseña' : 'Ocultar contraseña'">
+				<mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+			</button>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="admin-button" type="button" (click)="ingresar()">
+			Ingresar
+		</button>
+    </div>
+</div>

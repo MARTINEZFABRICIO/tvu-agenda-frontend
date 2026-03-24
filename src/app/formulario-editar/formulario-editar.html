@@ -1,0 +1,73 @@
+<div class="editar-page">
+    <div class="editar-card">
+        <div class="logos-top logos-row">
+            <img src="LOGORADIO.png" alt="TVU Logo 1" class="logo logo-main">
+            <img src="LOGO TVU.png" alt="TVU Logo 2" class="logo logo-main">
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 class="title">EDITAR CONTACTO</h2>
+        <p class="subtitle">Actualiza la información del contacto</p>
+
+        <form [formGroup]="formulario" class="formulario-columna" (ngSubmit)="guardarFormulario()">
+            <mat-form-field appearance="outline" class="full-width warm-field">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" /> @if (formulario.get('nombre')?.hasError('required') && formulario.get('nombre')?.touched) {
+                <mat-error>El nombre es obligatorio</mat-error>
+                } @if (formulario.get('nombre')?.hasError('minlength') && formulario.get('nombre')?.touched) {
+                <mat-error>Mínimo 3 caracteres</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width warm-field">
+                <mat-label>Institución</mat-label>
+                <input matInput formControlName="institucion" /> @if (formulario.get('institucion')?.hasError('required') && formulario.get('institucion')?.touched) {
+                <mat-error>La institución es obligatoria</mat-error>
+                } @if (formulario.get('institucion')?.hasError('minlength') && formulario.get('institucion')?.touched) {
+                <mat-error>Mínimo 3 caracteres</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width warm-field">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefono" /> @if (formulario.get('telefono')?.hasError('required') && formulario.get('telefono')?.touched) {
+                <mat-error>El teléfono es obligatorio</mat-error>
+                } @if (formulario.get('telefono')?.hasError('pattern') && formulario.get('telefono')?.touched) {
+                <mat-error>Solo números, entre 7 y 12 dígitos</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width warm-field">
+                <mat-label>Cargo</mat-label>
+                <input matInput formControlName="cargo" /> @if (formulario.get('cargo')?.hasError('required') && formulario.get('cargo')?.touched) {
+                <mat-error>El cargo es obligatorio</mat-error>
+                } @if (formulario.get('cargo')?.hasError('minlength') && formulario.get('cargo')?.touched) {
+                <mat-error>Mínimo 3 caracteres</mat-error>
+                }
+            </mat-form-field>
+
+            <div class="acciones-formulario">
+                <button mat-raised-button color="primary" class="boton-guardar" type="submit">
+					<mat-icon>save</mat-icon>
+					<span>Guardar cambios</span>
+				</button>
+
+                <button mat-stroked-button class="boton-limpiar" type="button" (click)="limpiarFormulario()">
+					<mat-icon>delete</mat-icon>
+					<span>Limpiar</span>
+				</button>
+            </div>
+        </form>
+
+        @if (datosGuardados) {
+        <mat-card class="panel-resultado">
+            <h3>Vista previa</h3>
+            <p><strong>Nombre:</strong> {{ datosGuardados.nombre }}</p>
+            <p><strong>Institución:</strong> {{ datosGuardados.institucion }}</p>
+            <p><strong>Teléfono:</strong> {{ datosGuardados.telefono }}</p>
+            <p><strong>Cargo:</strong> {{ datosGuardados.cargo }}</p>
+        </mat-card>
+        }
+    </div>
+</div>
