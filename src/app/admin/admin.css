@@ -154,3 +154,11 @@
 ::ng-deep .warm-field .mat-mdc-icon-button mat-icon {
     color: #9a3412 !important;
 }
+
+.error-message {
+    margin: -4px 0 4px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #b91c1c;
+}

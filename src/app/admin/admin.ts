@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
 	selector: 'app-admin',
@@ -21,27 +21,29 @@ import { Router } from '@angular/router';
 		MatIconModule
 	],
 	templateUrl: './admin.html',
-	styleUrl: './admin.css'
+	styleUrls: ['./admin.css']
 })
 export class AdminComponent {
 	rol: string = '';
 	password: string = '';
 	hidePassword: boolean = true;
+	errorMensaje: string = '';
 
 	roles: string[] = [
 		'Administrador',
-		'Jefe de Prensa',
-		'Soporte tecnico'
+		'Supervisor',
+		'Editor'
 	];
 
 	constructor(private router: Router) {}
 
 	ingresar(): void {
-		if (this.rol === 'Administrador' && this.password.trim() !== '') {
-			this.router.navigate(['/dashboard']);
+		if (this.rol === 'Administrador' && this.password === 'admin123') {
+			this.errorMensaje = '';
+			this.router.navigate(['/dashboard-principal']);
 			return;
 		}
 
-		alert('Seleccione un rol válido e ingrese la contraseña');
+		this.errorMensaje = 'Rol o contraseña incorrectos';
 	}
 }
