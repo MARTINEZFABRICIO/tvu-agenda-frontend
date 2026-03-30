@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 interface Contacto {
 	nombre: string;
@@ -33,7 +34,13 @@ export class ContactosComponent {
 	busqueda: string = '';
 	filtroActivo: 'nombre' | 'institucion' | 'cargo' = 'nombre';
 
-	displayedColumns: string[] = ['nombre', 'institucion', 'telefono', 'cargo'];
+	displayedColumns: string[] = [
+		'nombre',
+		'institucion',
+		'telefono',
+		'cargo',
+		'acciones'
+	];
 
 	contactos: Contacto[] = [
 		{
@@ -59,8 +66,10 @@ export class ContactosComponent {
 			institucion: 'TVU',
 			telefono: '74561238',
 			cargo: 'Camarógrafo'
-		},
+		}
 	];
+
+	constructor(private router: Router) {}
 
 	get contactosFiltrados(): Contacto[] {
 		const texto = this.busqueda.trim().toLowerCase();
@@ -81,5 +90,17 @@ export class ContactosComponent {
 
 	limpiarBusqueda(): void {
 		this.busqueda = '';
+	}
+
+	nuevoContacto(): void {
+		this.router.navigate(['/formulario-registrar']);
+	}
+
+	editarContacto(contacto: Contacto): void {
+		this.router.navigate(['/formulario-editar']);
+	}
+
+	eliminarContacto(contacto: Contacto): void {
+		this.router.navigate(['/formulario-eliminar']);
 	}
 }

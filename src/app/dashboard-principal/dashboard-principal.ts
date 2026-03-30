@@ -35,3 +35,4 @@ export class DashboardPrincipalComponent {
 		this.vistaActiva = 'principal';
 	}
 }
+

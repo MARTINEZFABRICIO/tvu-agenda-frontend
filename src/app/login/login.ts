@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 		MatInputModule
 	],
 	templateUrl: './login.html',
-	styleUrl: './login.css'
+	styleUrls: ['./login.css']
 })
 export class LoginComponent {
 	ci: string = '';
@@ -39,4 +39,9 @@ export class LoginComponent {
 
 		this.router.navigate(['/admin']);
 	}
+
+	irARegistro(): void {
+		this.router.navigate(['/registrarse']);
+	}
 }
+

@@ -8,10 +8,12 @@ import { DashboardComponent } from './dashboard/dashboard';
 import { FormularioEditarComponent } from './formulario-editar/formulario-editar';
 import { FormularioEliminarComponent } from './formulario-eliminar/formulario-eliminar';
 import { FormularioRegistrarComponent } from './formulario-registrar/formulario-registrar';
+import { RegistrarseComponent } from './registrarse/registrarse';
 
 export const routes: Routes = [
 	{ path: '', component: LoginComponent },
 	{ path: 'admin', component: AdminComponent },
+	{ path: 'registrarse', component: RegistrarseComponent },
 	{ path: 'contactos', component: ContactosComponent },
 	{ path: 'dashboard-principal', component: DashboardPrincipalComponent },
 	{ path: 'ControlUsuariosComponent', component: ControlUsuariosComponent },

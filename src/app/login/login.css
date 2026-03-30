@@ -140,3 +140,25 @@
     border-color: #2563eb !important;
     border-width: 2px !important;
 }
+
+.registro-opcion {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.registro-opcion span {
+    color: white;
+}
+
+.registro-opcion button {
+    color: #8ec5ff;
+}
+
+.registro-opcion button {
+    color: #a9d6ff;
+}

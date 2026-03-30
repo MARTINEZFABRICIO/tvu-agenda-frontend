@@ -103,4 +103,8 @@ export class DashboardComponent {
 	eliminarContacto(contacto: ContactoDashboard): void {
 		this.router.navigate(['/formulario-eliminar']);
 	}
+	irARegistro(): void {
+	this.router.navigate(['/registro']);
+	}
 }
+
